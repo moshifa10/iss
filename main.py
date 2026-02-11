@@ -1,7 +1,13 @@
 import requests
 import datetime as dt
 import smtplib
+import dotenv
+import os
 
+
+dotenv.load_dotenv()
+MY_PASSWORD = os.getenv(key="MY_PASSWORD")
+MY_EMAIL = os.getenv(key="MY_MAIL")
 MY_LAT = -26.204103
 MY_LONG = 28.047304
 ENDPOINT = "https://api.sunrise-sunset.org/json"
