@@ -47,26 +47,24 @@ def check_night():
     
 
 # print(type(now_time))
-send = False
-while not send:
-     
-    time.sleep(5)
-    if check() and check_night():
-        # check if now is under sunrise and not oversunrise and go see the iss pass
-            with smtplib.SMTP(host="smtp.gmail.com", port=587) as connection:
-                connection.starttls()
-                connection.login(user=MY_EMAIL, password=MY_PASSWORD)
 
-                message = "Go outside to see the ISS pass on your current location \n Look up\nBy\nNjabs" 
-                connection.sendmail(
-                    from_addr=MY_EMAIL, to_addrs=MY_EMAIL, msg=f"Subject: ISS passing \n\n{message}"
-                )
 
-            send = True
+if check() and check_night():
+    # check if now is under sunrise and not oversunrise and go see the iss pass
+        with smtplib.SMTP(host="smtp.gmail.com", port=587) as connection:
+            connection.starttls()
+            connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+
+            message = "Go outside to see the ISS pass on your current location \n Look up\nBy\nNjabs" 
+            connection.sendmail(
+                from_addr=MY_EMAIL, to_addrs=MY_EMAIL, msg=f"Subject: ISS passing \n\n{message}"
+            )
+
+        send = True
 
 
 
-    else:print("none")
+else:print("Not there Yet")
 #     else:
 #         print("its not the write time to go outside")
 # else:
