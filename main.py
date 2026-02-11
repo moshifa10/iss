@@ -44,4 +44,6 @@ if check(iss_latitude, iss_longitude):
 
     if now_time >= sunrise and now_time <= sunset:
         
-        with smtplib.SMTP(host=)
+        with smtplib.SMTP(host="smtp.gmail.com", port=587) as connection:
+            connection.starttls()
+            connection.login()
