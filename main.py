@@ -44,10 +44,6 @@ def check_night():
     if now_time >= sunrise and now_time <= sunset:
          return True
 
-    
-
-# print(type(now_time))
-
 
 if check() and check_night():
     # check if now is under sunrise and not oversunrise and go see the iss pass
@@ -61,11 +57,4 @@ if check() and check_night():
             )
 
         send = True
-
-
-
 else:print("Not there Yet")
-#     else:
-#         print("its not the write time to go outside")
-# else:
-#     print("its not there yet")
