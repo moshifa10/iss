@@ -1,0 +1,28 @@
+name: ISS Checker
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" 
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv
+
+      - name: Run script
+        run: python main.py
+        env:
+          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
+          MY_MAIL: ${{ secrets.MY_MAIL }}
